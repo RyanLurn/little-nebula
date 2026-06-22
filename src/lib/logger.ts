@@ -16,7 +16,10 @@ const options: LoggerOptions = {
       ? fileTransport
       : {
           targets: [
-            fileTransport,
+            {
+              ...fileTransport,
+              level: loggerConfig.FILE_TRANSPORT_LEVEL,
+            },
             {
               target: "pino-pretty",
               level: loggerConfig.PRETTY_TRANSPORT_LEVEL,
