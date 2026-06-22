@@ -117,7 +117,6 @@ function HomePage() {
             disabled={
               !input || status === "submitted" || status === "streaming"
             }
-            onClick={() => void sendMessage()}
             className="gap-1.5 rounded-lg"
             type="submit"
             size="icon"
