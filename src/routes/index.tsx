@@ -101,6 +101,7 @@ function HomePage() {
       >
         <Textarea
           className="field-sizing-content max-h-[6lh] w-full resize-none rounded-none border-none bg-transparent p-3 shadow-none ring-0 outline-none focus-visible:ring-0 dark:bg-transparent"
+          disabled={status === "submitted" || status === "streaming"}
           onChange={(e) => setInput(e.currentTarget.value)}
           placeholder="Say something..."
           onKeyDown={handleKeyDown}
@@ -116,6 +117,7 @@ function HomePage() {
             disabled={
               !input || status === "submitted" || status === "streaming"
             }
+            onClick={() => void sendMessage()}
             className="gap-1.5 rounded-lg"
             type="submit"
             size="icon"
