@@ -13,6 +13,7 @@
     "fix": "bun run lint:fix && bun run format"
   },
   "dependencies": {
+    "@ai-sdk/google": "3.0.83",
     "@base-ui/react": "1.5.0",
     "@fontsource-variable/geist": "5.2.9",
     "@tanstack/react-router": "1.170.16",
