@@ -33,7 +33,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html suppressHydrationWarning lang="en">
       <head>
-        <script src="https://unpkg.com/react-scan/dist/auto.global.js" />
+        {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" /> */}
         <HeadContent />
       </head>
       <body>
