@@ -1,3 +1,4 @@
+import { setResponseStatus } from "@tanstack/react-start/server";
 import { createServerFn } from "@tanstack/react-start";
 import { serializeError } from "serialize-error";
 import { eq } from "drizzle-orm";
@@ -7,6 +8,7 @@ import type { SelectedMessage } from "@/db/types/inferred";
 import type { FallbackErrorCode } from "@/types/app-error";
 import type { Result, Err, Ok } from "@/types/result";
 
+import { HTTP_STATUS } from "@/utils/http-status";
 import { messageTable } from "@/db/schema/chat";
 import { logger } from "@/lib/logger";
 import { db } from "@/db";
@@ -35,6 +37,11 @@ export const listMessages = createServerFn({ strict: false })
 
         return ok;
       } catch (error) {
+        setResponseStatus(
+          HTTP_STATUS.INTERNAL_SERVER_ERROR.code,
+          HTTP_STATUS.INTERNAL_SERVER_ERROR.text
+        );
+
         const err: Err<FallbackErrorCode> = {
           success: false,
           error: {
