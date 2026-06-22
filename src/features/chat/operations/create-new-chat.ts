@@ -3,7 +3,6 @@ import { createServerFn } from "@tanstack/react-start";
 import { serializeError } from "serialize-error";
 import { z } from "zod";
 
-import type { SelectedMessage } from "@/db/types/inferred";
 import type { FallbackErrorCode } from "@/types/app-error";
 import type { Result, Err, Ok } from "@/types/result";
 
