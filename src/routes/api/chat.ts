@@ -1,7 +1,7 @@
 import { convertToModelMessages, validateUIMessages, streamText } from "ai";
 import { createFileRoute } from "@tanstack/react-router";
 
-import { googleGenerativeAIProvider } from "@/config/ai";
+import { groqProvider } from "@/config/ai";
 import { logger } from "@/lib/logger";
 
 export const Route = createFileRoute("/api/chat")({
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/api/chat")({
         const validatedMessages = await validateUIMessages({ messages });
 
         const streamTextResult = streamText({
-          model: googleGenerativeAIProvider("gemma-4-26b-a4b-it"),
+          model: groqProvider("openai/gpt-oss-120b"),
           messages: await convertToModelMessages(messages),
           onFinish: (result) => {
             logger.trace({
