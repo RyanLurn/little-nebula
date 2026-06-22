@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Toaster } from "@/components/ui/sonner";
 import styles from "@/globals.css?url";
@@ -39,7 +40,9 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       <body>
         <ThemeProvider defaultTheme="system" storageKey="theme">
           <Toaster position="top-center" closeButton richColors />
-          <div className="h-screen">{children}</div>
+          <TooltipProvider>
+            <div className="h-screen">{children}</div>
+          </TooltipProvider>
           <ModeToggle className="fixed top-3 right-3" />
         </ThemeProvider>
         <Scripts />
